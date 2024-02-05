@@ -1,6 +1,7 @@
 ---
 units:
-  I: 1.05U
+  imu: 0.05U
+  I: U + imu
   i: 0.475U
   r: 0.5I
   R: r * 1.5

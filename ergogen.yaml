@@ -261,3 +261,23 @@ pcbs:
           ref: mirror_main_i1_num
           shift: [I, -i]
           rotate: 90
+      oled_left:
+        what: oled
+        params:
+          side: "F"
+          SDA: P2
+          SCL: P3
+        where:
+          ref: main_i1_num
+          shift: [+(I - 6), -(r + 18)]
+          rotate: 90
+      oled_right:
+        what: oled
+        params:
+          side: "F"
+          SDA: P2
+          SCL: P3
+        where:
+          ref: mirror_main_i1_num
+          shift: [+(I + 6), -(r + 18)]
+          rotate: -90

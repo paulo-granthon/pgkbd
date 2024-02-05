@@ -42,20 +42,24 @@ points:
 
     thumb:
       key:
-        splay: -6
-        stagger: -4
+        shift: [0, r]
+        splay: -3.725
+        stagger: -7.5
       anchor:
         ref: main_mx_zxc
-        shift: [-0.025U, -1U + 4]
-        rotate: 6
+        shift: [0, -I -i]
       columns:
         t0:
+          key.splay: 0
+          key.stagger: 0
         t1:
+          key.shift: [-0.5imu, r]
         t2:
+          key.shift: [-1imu, r]
         t3:
-          key:
-            height: B
-            shift: [0, b]
+          key.rotate: -5.25
+          key.height: B
+          key.shift: [-0.75imu, b + r]
       rows:
         m:
   mirror: &mirror

@@ -1,0 +1,258 @@
+---
+units:
+  I: 1.05U
+  i: 0.475U
+  r: 0.5I
+  R: r * 1.5
+  b: 0.25I
+  B: 1.5I
+  br: b + (B / 2)
+  x: (B / 2) + 0.05I
+points:
+  key:
+    splay: -0.75
+    rotate: -0.25
+  zones:
+    main:
+      anchor:
+        rotate: -4
+        shift: [100, -100]
+      columns:
+        p1:
+        p0:
+          key.splay: -0.25
+          key.stagger: 4
+        rx:
+          key.splay: -0.5
+          key.stagger: 4
+        mx:
+          key.stagger: 2
+        i0:
+          key.splay: -0.5
+          key.stagger: -4
+        i1:
+          key.splay: -0.25
+          key.stagger: -4
+      rows:
+        zxc:
+        asd:
+        qwe:
+        num:
+
+    thumb:
+      key:
+        splay: -6
+        stagger: -4
+      anchor:
+        ref: main_mx_zxc
+        shift: [-0.025U, -1U + 4]
+        rotate: 6
+      columns:
+        t0:
+        t1:
+        t2:
+        t3:
+          key:
+            height: B
+            shift: [0, b]
+      rows:
+        m:
+  mirror: &mirror
+    ref: main_i1_num
+    distance: 4U
+  rotate: -6
+
+outlines:
+  raw:
+    - what: rectangle
+      where: true
+      size: 1U
+  keys_left:
+    - what: rectangle
+      where: true
+      size: 1U - 1
+    - what: polygon
+      operation: stack
+      points:
+        - ref: thumb_t3_m
+          shift: [-i, R]
+        - ref: thumb_t3_m
+          shift: [i, R]
+        - ref: thumb_t3_m
+          shift: [i, -R]
+        - ref: thumb_t3_m
+          shift: [-i, -R]
+  keys_right:
+    - what: rectangle
+      where: true
+      size: 1U - 1
+    - what: polygon
+      operation: stack
+      points:
+        - ref: mirror_thumb_t3_m
+          shift: [i, R]
+        - ref: mirror_thumb_t3_m
+          shift: [-i, R]
+        - ref: mirror_thumb_t3_m
+          shift: [-i, -R]
+        - ref: mirror_thumb_t3_m
+          shift: [i, -R]
+  keys:
+    - name: keys_left
+    - operation: add
+      name: keys_right
+  board_left:
+    - what: polygon
+      operation: stack
+      points:
+        - ref: main_p1_num
+          shift: [-r, r]
+        - ref: main_p1_num
+          shift: [i, r]
+        - ref: main_p0_num
+          shift: [-r, r]
+        - ref: main_p0_num
+          shift: [i, r]
+        - ref: main_rx_num
+          shift: [-r, r]
+        - ref: main_rx_num
+          shift: [i, r]
+        - ref: main_mx_num
+          shift: [-i, r]
+        - ref: main_mx_num
+          shift: [i, r]
+        - ref: main_i0_num
+          shift: [-i, r]
+        - ref: main_i0_num
+          shift: [r, r]
+        - ref: main_i1_num
+          shift: [-i, r]
+        - ref: main_i1_num
+          shift: [r, r]
+        - ref: main_i1_zxc
+          shift: [r, 0]
+        - ref: thumb_t3_m
+          shift: [-r, br]
+        - ref: thumb_t3_m
+          shift: [r, br]
+        - ref: thumb_t3_m
+          shift: [r, -x]
+        - ref: thumb_t3_m
+          shift: [-r, -x]
+        - ref: thumb_t2_m
+          shift: [0, -r]
+        - ref: thumb_t2_m
+          shift: [-r, -r]
+        - ref: thumb_t1_m
+          shift: [-r, -r]
+        - ref: thumb_t0_m
+          shift: [-i, -r]
+        - ref: main_p1_zxc
+          shift: [U+r, -r]
+        - ref: main_p1_zxc
+          shift: [r, -r]
+        - ref: main_p1_zxc
+          shift: [-r, -r]
+      fillet: 1.5
+  board_right:
+    - what: polygon
+      operation: stack
+      points:
+        - ref: mirror_main_p1_num
+          shift: [-r, r]
+        - ref: mirror_main_p1_num
+          shift: [i, r]
+        - ref: mirror_main_p0_num
+          shift: [-r, r]
+        - ref: mirror_main_p0_num
+          shift: [i, r]
+        - ref: mirror_main_rx_num
+          shift: [-r, r]
+        - ref: mirror_main_rx_num
+          shift: [i, r]
+        - ref: mirror_main_mx_num
+          shift: [-i, r]
+        - ref: mirror_main_mx_num
+          shift: [i, r]
+        - ref: mirror_main_i0_num
+          shift: [-i, r]
+        - ref: mirror_main_i0_num
+          shift: [r, r]
+        - ref: mirror_main_i1_num
+          shift: [-i, r]
+        - ref: mirror_main_i1_num
+          shift: [r, r]
+        - ref: mirror_main_i1_zxc
+          shift: [r, 0]
+        - ref: mirror_thumb_t3_m
+          shift: [-r, br]
+        - ref: mirror_thumb_t3_m
+          shift: [r, br]
+        - ref: mirror_thumb_t3_m
+          shift: [r, -x]
+        - ref: mirror_thumb_t3_m
+          shift: [-r, -x]
+        - ref: mirror_thumb_t2_m
+          shift: [0, -r]
+        - ref: mirror_thumb_t2_m
+          shift: [-r, -r]
+        - ref: mirror_thumb_t1_m
+          shift: [-r, -r]
+        - ref: mirror_thumb_t0_m
+          shift: [-i, -r]
+        - ref: mirror_main_p1_zxc
+          shift: [U+r, -r]
+        - ref: mirror_main_p1_zxc
+          shift: [r, -r]
+        - ref: mirror_main_p1_zxc
+          shift: [-r, -r]
+      fillet: 1.5
+  boards:
+    - name: board_left
+    - operation: add
+      name: board_right
+  combo:
+    - name: boards
+    - operation: subtract
+      name: keys
+pcbs:
+  pgranthon:
+    outlines:
+      main:
+        outline: boards
+      cutouts:
+        outline: keys
+    footprints:
+      mx_hotswap:
+        what: mx
+        where: true
+        params:
+          keycaps: true
+          reverse: false
+          hotswap: true
+          from: "{{column_net}}"
+          to: "{{colrow}}"
+      diode:
+        what: diode
+        where: true
+        params:
+          from: "{{colrow}}"
+          to: "{{row_net}}"
+        adjust:
+          shift: [0, -5]
+      promicro_left:
+        what: promicro
+        params:
+          orientation: "down"
+        where:
+          ref: main_i1_num
+          shift: [I, -i]
+          rotate: -90
+      promicro_right:
+        what: promicro
+        params:
+          orientation: "down"
+        where:
+          ref: mirror_main_i1_num
+          shift: [I, -i]
+          rotate: 90
